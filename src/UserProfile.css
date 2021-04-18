@@ -1,0 +1,10 @@
+body {
+  font-family: Gotham Black, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+.border-danger {
+  border-color: #ed1c24 !important;
+  border-width: initial;
+}
+img {
+  width: 160px;
+}
