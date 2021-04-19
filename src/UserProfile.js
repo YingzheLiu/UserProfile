@@ -6,48 +6,19 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faInstagram,
-  faTwitter,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
 
 export default function UserProfile({ user, props }) {
   const socialMedia = [];
-  user.socialMediaLink.github &&
-    socialMedia.push(
-      <SocialMediaIcon
-        link={user.socialMediaLink.github}
-        icon={faGithub}
-        color="#000000"
-      />
-    );
-  user.socialMediaLink.instagram &&
-    socialMedia.push(
-      <SocialMediaIcon
-        link={user.socialMediaLink.instagram}
-        icon={faInstagram}
-        color="#8a3ab9"
-      />
-    );
-  user.socialMediaLink.linkedIn &&
-    socialMedia.push(
-      <SocialMediaIcon
-        link={user.socialMediaLink.linkedIn}
-        icon={faLinkedin}
-        color="#0073b1"
-      />
-    );
-  user.socialMediaLink.twitter &&
-    socialMedia.push(
-      <SocialMediaIcon
-        link={user.socialMediaLink.twitter}
-        icon={faTwitter}
-        color="#1DA1F2"
-      />
-    );
 
+  user.socialMedia.forEach((aSocialMedia) => {
+    socialMedia.push(
+      <SocialMediaIcon
+        link={aSocialMedia.link}
+        icon={aSocialMedia.icon}
+        color={aSocialMedia.color}
+      />
+    );
+  });
   return (
     <>
       <Card
