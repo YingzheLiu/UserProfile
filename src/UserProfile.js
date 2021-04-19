@@ -1,47 +1,73 @@
 import React from "react";
 import Image from "react-bootstrap/Image";
-import "./UserProfile.css";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-export default function UserProfile({ user, props }) {
+import PropTypes from "prop-types";
+export default function UserProfile({
+  user,
+  cardWidth = "25rem",
+  cardBackgroundColor = "#FAF6F5",
+  cardBorderColor = "#ed1c24",
+  fontFamily = "Gotham Black, Helvetica Neue, Helvetica, Arial, sans-serif",
+}) {
   const socialMedia = [];
 
-  user.socialMedia.forEach((aSocialMedia) => {
-    socialMedia.push(
-      <SocialMediaIcon
-        link={aSocialMedia.link}
-        icon={aSocialMedia.icon}
-        color={aSocialMedia.color}
-      />
-    );
-  });
+  user &&
+    user.socialMedia &&
+    user.socialMedia.forEach((aSocialMedia, index) => {
+      socialMedia.push(
+        <SocialMediaIcon
+          link={aSocialMedia.link}
+          icon={aSocialMedia.icon}
+          color={aSocialMedia.color}
+          key={index}
+        />
+      );
+    });
   return (
     <>
       <Card
-        border="danger"
         style={{
-          width: props.cardWidth,
-          backgroundColor: props.cardBackgroundColor,
+          width: cardWidth,
+          backgroundColor: cardBackgroundColor,
+          borderColor: cardBorderColor,
+          borderWidth: "initial",
         }}
       >
-        <Card.Body className="m-3">
+        <Card.Body
+          className="m-3"
+          style={{
+            fontFamily: fontFamily,
+          }}
+        >
           <Row>
-            <Col className="mr-3">
-              <Image src="NikkiLiuPic.jpeg" roundedCircle />
-            </Col>
+            {user && user.imgLink && (
+              <Col className="mr-3">
+                <Image
+                  src={user.imgLink}
+                  roundedCircle
+                  style={{
+                    width: "160px",
+                  }}
+                />
+              </Col>
+            )}
             <Col style={{ marginTop: "30px" }}>
-              <Row>
-                <h4>
-                  <strong>{user.name}</strong>
-                </h4>
-              </Row>
-              <Row>
-                <small className="text-muted mb-1">{user.position}</small>
-              </Row>
+              {user && user.name && (
+                <Row>
+                  <h4>
+                    <strong>{user.name}</strong>
+                  </h4>
+                </Row>
+              )}
+              {user && user.position && (
+                <Row>
+                  <small className="text-muted mb-1">{user.position}</small>
+                </Row>
+              )}
               <Row className="mt-1">
                 {socialMedia.map((icon, index) => {
                   return (
@@ -53,10 +79,12 @@ export default function UserProfile({ user, props }) {
               </Row>
             </Col>
           </Row>
-          <Row className="mt-3">
-            <p>{user.bio}</p>
-          </Row>
-          {user.detailLink && (
+          {user && user.bio && (
+            <Row className="mt-3">
+              <p>{user.bio}</p>
+            </Row>
+          )}
+          {user && user.detailLink && (
             <Button
               href={user.detailLink}
               variant="outline-danger"
@@ -78,3 +106,15 @@ function SocialMediaIcon({ link, icon, color }) {
     </a>
   );
 }
+UserProfile.propTypes = {
+  user: PropTypes.object,
+  cardWidth: PropTypes.string,
+  cardBackgroundColor: PropTypes.string,
+  cardBorderColor: PropTypes.string,
+  fontFamily: PropTypes.string,
+};
+SocialMediaIcon.propTypes = {
+  link: PropTypes.string,
+  icon: PropTypes.object,
+  color: PropTypes.string,
+};
