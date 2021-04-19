@@ -18,14 +18,16 @@ export default function UserProfile({
   user &&
     user.socialMedia &&
     user.socialMedia.forEach((aSocialMedia, index) => {
-      socialMedia.push(
-        <SocialMediaIcon
-          link={aSocialMedia.link}
-          icon={aSocialMedia.icon}
-          color={aSocialMedia.color}
-          key={index}
-        />
-      );
+      aSocialMedia.link &&
+        aSocialMedia.icon &&
+        socialMedia.push(
+          <SocialMediaIcon
+            link={aSocialMedia.link}
+            icon={aSocialMedia.icon}
+            color={aSocialMedia.color}
+            key={index}
+          />
+        );
     });
   return (
     <>
@@ -99,10 +101,15 @@ export default function UserProfile({
   );
 }
 
-function SocialMediaIcon({ link, icon, color }) {
+function SocialMediaIcon({ link, icon, color = "black" }) {
   return (
     <a href={link}>
-      <FontAwesomeIcon icon={icon} size="1x" color={color} />
+      <FontAwesomeIcon
+        icon={icon}
+        size="1x"
+        color={color}
+        data-testid="social-media-icon"
+      />
     </a>
   );
 }
