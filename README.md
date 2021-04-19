@@ -1,7 +1,7 @@
 # React User Profile
 
-A simple user profile component for React (deployed link)
-
+A simple user profile component for React (deployed link) <br />
+<img src="https://github.com/YingzheLiu/UserProfile/blob/main/UserProfileExample.jpg" width="500" height="650">
 ## Code Example
 ```js
 <UserProfile
