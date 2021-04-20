@@ -54,20 +54,27 @@ export default function UserProfile({
                   style={{
                     width: "160px",
                   }}
+                  alt="User Avatar"
+                  data-testid="user-avatar"
                 />
               </Col>
             )}
             <Col style={{ marginTop: "30px" }}>
               {user && user.name && (
                 <Row>
-                  <h4>
+                  <h5 data-testid="user-name">
                     <strong>{user.name}</strong>
-                  </h4>
+                  </h5>
                 </Row>
               )}
               {user && user.position && (
                 <Row>
-                  <small className="text-muted mb-1">{user.position}</small>
+                  <small
+                    className="text-muted mb-1"
+                    data-testid="user-position"
+                  >
+                    {user.position}
+                  </small>
                 </Row>
               )}
               <Row className="mt-1">
@@ -83,7 +90,7 @@ export default function UserProfile({
           </Row>
           {user && user.bio && (
             <Row className="mt-3">
-              <p>{user.bio}</p>
+              <p data-testid="user-bio">{user.bio}</p>
             </Row>
           )}
           {user && user.detailLink && (
