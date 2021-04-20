@@ -1,8 +1,10 @@
 # React User Profile
 
 A simple user profile component for React (deployed link) <br />
-<img src="https://github.com/YingzheLiu/UserProfile/blob/main/UserProfileExample.jpg" width="500" height="650">
-## Code Example
+<img src="https://github.com/YingzheLiu/UserProfile/blob/main/UserProfileExample.jpg" width="300" height="390"> <br />
+Libraries used in the component: bootstrap, prop-types, fortawesome
+
+## Code Example of How to Use the React User Profile Component
 ```js
 <UserProfile
   user={user}
@@ -12,7 +14,17 @@ A simple user profile component for React (deployed link) <br />
   fontFamily={fontFamily}
 />
 ```
-`user` is an object with all the basic information
+#### `user` is an object with all the basic information
+Property | Description
+------------ | -------------
+name | First and the last name of the user
+imgLink | Link for the image to be used as the user avatar
+position | 2 or 3 words that best descript the user
+detailLink | Link to another page to show more details about the user
+bio | 2 or 3 sentences to descript the user
+socialMedia | a list of icon with clickable link to user's social media (attributes `link` and `ico`n are required) (icons need to be imported from `@fortawesome/free-brands-svg-icons`)
+
+#### `user` object example
 ```js
 const user = {
   name: "Nikki Liu",
@@ -44,5 +56,20 @@ const user = {
     },
   ],
 };
-  ```
-  
+```
+#### Possible Customized CSS Properties
+Property | Description
+------------ | -------------
+cardBackgroundColor | background color of the bootstrap Card Component (default is `#FAF6F5`)
+cardWidth | width of the bootstrap Card Component (default is `25rem`)
+cardBorderColor | border color of the bootstrap Card Component (default is `#ed1c24`)
+fontFamily | font of the content in the bootstrap Card Component (default is `Gotham Black, Helvetica Neue, Helvetica, Arial, sans-serif`)
+
+## Commands
+```
+npm start // Invode the App component showed in the deployed link
+npm test // Run test cases
+```
+## Future Improvement
+1. Use the Reander Props Pattern to be more flexible
+2. Simpify the test cases
