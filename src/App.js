@@ -13,7 +13,7 @@ function App() {
     name: "Nikki Liu",
     imgLink: "./NikkiLiuPic.jpeg",
     position: "Computer Science Student",
-    detailLink: "https://www.netflix.com/",
+    detailLink: "https://nikkiliu-myopenfda.netlify.app/",
     bio:
       "Hello! My name is Nikki Liu. Current undergraduate at the University of Southern California studying Computer Science. Really interested in front-end development. Expected to graduate in spring 2021 and will continue on grad school to obtain a Masters in computer science at USC. Looking forward to a 2021 summer internship. Please contact me at yingzhe@usc.edu.",
     socialMedia: [
@@ -33,7 +33,7 @@ function App() {
         color: "#0073b1",
       },
       {
-        link: "https://github.com/yingzheliu/",
+        link: "https://twitter.com/",
         icon: faTwitter,
         color: "#1DA1F2",
       },
