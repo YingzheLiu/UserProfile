@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import UserProfile from "./UserProfile";
-import Row from "react-bootstrap/Row";
 import {
   faLinkedin,
   faInstagram,
@@ -48,15 +47,13 @@ function App() {
   return (
     <>
       <Container className="App mt-3">
-        <Row>
-          <UserProfile
-            user={user}
-            cardBackgroundColor={cardBackgroundColor}
-            cardWidth={cardWidth}
-            cardBorderColor={cardBorderColor}
-            fontFamily={fontFamily}
-          />
-        </Row>
+        <UserProfile
+          user={user}
+          cardBackgroundColor={cardBackgroundColor}
+          cardWidth={cardWidth}
+          cardBorderColor={cardBorderColor}
+          fontFamily={fontFamily}
+        />
       </Container>
     </>
   );
