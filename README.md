@@ -1,6 +1,6 @@
 # React User Profile
 
-A simple user profile component for React (deployed link) <br />
+A simple user profile component for React ([demo deployed on Heroku](https://react-user-profile-nikki.herokuapp.com/)) <br />
 <img src="https://github.com/YingzheLiu/UserProfile/blob/main/UserProfileExample.jpg" width="300" height="390"> <br />
 Libraries used in the component: bootstrap, prop-types, fortawesome
 
@@ -67,7 +67,7 @@ fontFamily | font of the content in the bootstrap Card Component (default is `Go
 
 ## Commands
 ```
-npm start // Invode the App component showed in the deployed link
+npm start // Invode the App component showed in the deploy link
 npm test // Run test cases
 ```
 ## Future Improvement
